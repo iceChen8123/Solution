@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class SolutionInsertionSort {
 
+	static int shiftTimes = 0;
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		Scanner in = new Scanner(System.in);
@@ -22,12 +24,12 @@ public class SolutionInsertionSort {
 			if (all[ai - 1] > all[ai]) {
 				all = insertionSortedList(all, ai);
 			}
-			for (int num : all) {
-				System.out.print(num + " ");
-			}
-			System.out.println();
+//			for (int num : all) {
+//				System.out.print(num + " ");
+//			}
+//			System.out.println();
 		}
-		System.out.println();
+		System.out.println(shiftTimes);
 	}
 
 	private static int[] insertionSortedList(int[] all, int endIndex) {
@@ -35,6 +37,7 @@ public class SolutionInsertionSort {
 		while (true) {
 			if (all[endIndex - 1] > tagNum) {
 				all[endIndex] = all[endIndex - 1];
+				shiftTimes++;
 			} else {
 				all[endIndex] = tagNum;
 				break;
